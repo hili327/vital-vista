@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental_Disease Page - VitalVista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F4F8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-image: url('images/BG3.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            background-color: #2e2e41;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            padding: 40px 15px;
+            text-align: center;
+            background-color: #A1ABBE;
+        }
+
+        .content-section h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .content-section .box {
+            width: 250px;
+            height: 300px;
+            margin: 15px;
+            border-radius: 15px;
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+        }
+
+        .content-section .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .box img {
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+        }
+
+        .box h3 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 600px;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #5c5050;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .modal-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .modal-images img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+         .contact {
+            padding: 60px 20px;
+            background-color: #dbdbdb;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+         .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+         .contact p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #3F0013;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="#topics">Mental Health</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <header id="header">
+        <h1>Mental Disease</h1>
+    </header>
+
+    <section class="content-section" id="topics">
+        <h2>Explore Key Mental Health Topics</h2>
+        <p>Click on any topic to learn more about its significance in mental health.</p>
+        <div id="topics-container">
+            <!-- Example for "Stress Management" -->
+            <div class="box" 
+                onclick="showModal(
+                    'Stress Management', 
+                    'Tips and techniques to help you manage daily stress effectively.',
+                    'Causes: Work pressure, personal issues, lack of support.',
+                    'Treatment: Therapy, exercise, mindfulness practices.',
+                    'Recommended Foods: Nuts, berries, green tea.',
+                    'Actions: Regular exercise, meditation, adequate sleep.',
+                    ['images/BG5.jpg', 'images/stress2.jpg', 'images/stress3.jpg', 'images/stress4.jpg']
+                )">
+                <img src="images/MH.jpg" alt="Stress Management">
+                <h3>Stress Management</h3>
+            </div>
+            <!-- Example for "Anxiety Disorders" -->
+<div class="box" 
+onclick="showModal(
+    'Anxiety Disorders', 
+    'Anxiety disorders are characterized by excessive fear, worry, or nervousness that interferes with daily activities.',
+    'Causes: Genetics, brain chemistry, trauma, stressful life events, and medical conditions.',
+    'Treatment: Cognitive-behavioral therapy (CBT), medication (antidepressants, benzodiazepines), lifestyle changes.',
+    'Recommended Foods: Complex carbohydrates, lean proteins, omega-3 fatty acids, and magnesium-rich foods.',
+    'Actions: Deep breathing exercises, regular physical activity, social support, avoiding caffeine.',
+    ['images/anxiety1.jpg', 'images/anxiety2.jpg', 'images/anxiety3.jpg', 'images/anxiety4.jpg']
+)">
+<img src="images/anxiety-thumbnail.jpg" alt="Anxiety Disorders">
+<h3>Anxiety Disorders</h3>
+</div>
+            <!-- Example for "Depression" -->
+<div class="box" 
+onclick="showModal(
+    'Depression (Major Depressive Disorder)', 
+    'Depression is a mood disorder characterized by persistent feelings of sadness, hopelessness, and loss of interest in activities that once brought joy.',
+    'Causes: Genetic factors, imbalances in brain chemicals, stressful life events, chronic illnesses.',
+    'Treatment: Antidepressant medications, therapy (CBT), lifestyle changes, social support.',
+    'Recommended Foods: Omega-3 rich foods, leafy greens, fruits like bananas and berries.',
+    'Actions: Regular exercise, adequate sleep, mindfulness, socializing with supportive people.',
+    ['images/depression1.jpg', 'images/depression2.jpg', 'images/depression3.jpg', 'images/depression4.jpg']
+)">
+<img src="images/depression-thumbnail.jpg" alt="Depression">
+<h3>Depression (Major Depressive Disorder)</h3>
+</div>
+<!-- Example for "Bipolar Disorder" -->
+<div class="box" 
+    onclick="showModal(
+        'Bipolar Disorder', 
+        'Bipolar disorder is a mental health condition characterized by extreme mood swings that include emotional highs (mania or hypomania) and lows (depression).',
+        'Causes: Genetic factors, imbalances in brain chemistry, environmental stressors.',
+        'Treatment: Mood stabilizers, antipsychotic medications, psychotherapy (CBT, psychoeducation).',
+        'Recommended Foods: Omega-3 fatty acids, fruits, vegetables, and whole grains.',
+        'Actions: Regular sleep patterns, managing stress, staying active, building a supportive network.',
+        ['images/bipolar1.jpg', 'images/bipolar2.jpg', 'images/bipolar3.jpg', 'images/bipolar4.jpg']
+    )">
+    <img src="images/bipolar-thumbnail.jpg" alt="Bipolar Disorder">
+    <h3>Bipolar Disorder</h3>
+</div>
+<!-- Example for "Schizophrenia" -->
+<div class="box" 
+    onclick="showModal(
+        'Schizophrenia', 
+        'Schizophrenia is a chronic and severe mental disorder that affects how a person thinks, feels, and behaves, often leading to a distorted perception of reality.',
+        'Causes: Genetic predisposition, brain abnormalities, environmental factors (e.g., stress, drug use).',
+        'Treatment: Antipsychotic medications, psychotherapy (CBT, family therapy), and social support.',
+        'Recommended Foods: Balanced diet with lean proteins, omega-3 fatty acids, and whole grains.',
+        'Actions: Consistent medication adherence, therapy sessions, building healthy routines, social support.',
+        ['images/schizophrenia1.jpg', 'images/schizophrenia2.jpg', 'images/schizophrenia3.jpg', 'images/schizophrenia4.jpg']
+    )">
+    <img src="images/schizophrenia-thumbnail.jpg" alt="Schizophrenia">
+    <h3>Schizophrenia</h3>
+</div>
+<!-- Example for "Obsessive-Compulsive Disorder (OCD)" -->
+<div class="box" 
+    onclick="showModal(
+        'Obsessive-Compulsive Disorder (OCD)', 
+        'Obsessive-Compulsive Disorder (OCD) is a mental health condition characterized by unwanted repetitive thoughts (obsessions) and behaviors (compulsions) that the person feels compelled to perform.',
+        'Causes: Genetic factors, brain structure abnormalities, environmental factors, stress.',
+        'Treatment: Cognitive Behavioral Therapy (CBT), Exposure and Response Prevention (ERP), medications (SSRIs).',
+        'Recommended Foods: Omega-3 fatty acids, lean proteins, complex carbs, and antioxidants.',
+        'Actions: Regular exercise, mindfulness practices, avoiding triggers, seeking therapy.',
+        ['images/ocd1.jpg', 'images/ocd2.jpg', 'images/ocd3.jpg', 'images/ocd4.jpg']
+    )">
+    <img src="images/ocd-thumbnail.jpg" alt="Obsessive-Compulsive Disorder">
+    <h3>Obsessive-Compulsive Disorder (OCD)</h3>
+</div>
+<!-- Example for "Post-Traumatic Stress Disorder (PTSD)" -->
+<div class="box" 
+    onclick="showModal(
+        'Post-Traumatic Stress Disorder (PTSD)', 
+        'PTSD is a mental health condition triggered by a terrifying event, leading to symptoms such as flashbacks, nightmares, and severe anxiety.',
+        'Causes: Exposure to traumatic events such as war, accidents, violence, or natural disasters.',
+        'Treatment: Trauma-focused therapy (CPT, EMDR), medication (antidepressants, anti-anxiety), mindfulness practices.',
+        'Recommended Foods: Magnesium-rich foods, leafy greens, and anti-inflammatory foods.',
+        'Actions: Regular exercise, seeking therapy, social support, mindfulness practices.',
+        ['images/ptsd1.jpg', 'images/ptsd2.jpg', 'images/ptsd3.jpg', 'images/ptsd4.jpg']
+    )">
+    <img src="images/ptsd-thumbnail.jpg" alt="Post-Traumatic Stress Disorder">
+    <h3>Post-Traumatic Stress Disorder (PTSD)</h3>
+</div>
+<!-- Example for "Major Depressive Disorder (MDD)" -->
+<div class="box" 
+    onclick="showModal(
+        'Major Depressive Disorder (MDD)', 
+        'Major Depressive Disorder is a mood disorder characterized by persistent feelings of sadness, hopelessness, and a lack of interest in activities once enjoyed.',
+        'Causes: Genetic factors, chemical imbalances in the brain, trauma, chronic stress, and certain medical conditions.',
+        'Treatment: Antidepressant medications, psychotherapy (CBT, interpersonal therapy), and lifestyle changes.',
+        'Recommended Foods: Omega-3 fatty acids, vitamin B12, and foods rich in antioxidants and fiber.',
+        'Actions: Regular exercise, social support, practicing mindfulness, and maintaining a routine.',
+        ['images/mdd1.jpg', 'images/mdd2.jpg', 'images/mdd3.jpg', 'images/mdd4.jpg']
+    )">
+    <img src="images/mdd-thumbnail.jpg" alt="Major Depressive Disorder">
+    <h3>Major Depressive Disorder (MDD)</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Panic Disorder', 
+        'Panic Disorder involves sudden and repeated attacks of intense fear or discomfort, often accompanied by physical symptoms like chest pain.',
+        'Causes: Genetics, stress, environmental factors.',
+        'Treatment: Cognitive Behavioral Therapy (CBT), medications (SSRIs, benzodiazepines).',
+        'Recommended Foods: Magnesium-rich foods, vitamin D, anti-inflammatory foods.',
+        'Actions: Relaxation exercises, exposure therapy, lifestyle changes.',
+        ['images/panic1.jpg', 'images/panic2.jpg']
+    )">
+    <img src="images/panic-thumbnail.jpg" alt="Panic Disorder">
+    <h3>Panic Disorder</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Social Anxiety Disorder', 
+        'Social Anxiety Disorder is characterized by intense fear of social situations, leading to avoidance and emotional distress.',
+        'Causes: Genetics, environmental influences, negative experiences in social settings.',
+        'Treatment: Cognitive Behavioral Therapy (CBT), medications (SSRIs, beta-blockers).',
+        'Recommended Foods: Omega-3s, antioxidants, magnesium.',
+        'Actions: Gradual exposure, relaxation techniques, cognitive restructuring.',
+        ['images/socialanxiety1.jpg', 'images/socialanxiety2.jpg']
+    )">
+    <img src="images/socialanxiety-thumbnail.jpg" alt="Social Anxiety Disorder">
+    <h3>Social Anxiety Disorder</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Anorexia Nervosa', 
+        'Anorexia Nervosa is an eating disorder characterized by an extreme fear of gaining weight, leading to restrictive eating and excessive weight loss.',
+        'Causes: Genetic predisposition, societal pressures, emotional stress.',
+        'Treatment: Therapy (CBT, family therapy), nutritional counseling, medications for anxiety/depression.',
+        'Recommended Foods: Nutrient-dense, balanced meals rich in vitamins and minerals.',
+        'Actions: Gradual weight gain under supervision, therapy, support groups.',
+        ['images/anorexia1.jpg', 'images/anorexia2.jpg']
+    )">
+    <img src="images/anorexia-thumbnail.jpg" alt="Anorexia Nervosa">
+    <h3>Anorexia Nervosa</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Bulimia Nervosa', 
+        'Bulimia Nervosa is an eating disorder characterized by episodes of binge eating followed by purging behaviors such as vomiting or excessive exercise.',
+        'Causes: Genetic factors, societal pressure, history of dieting.',
+        'Treatment: Therapy (CBT, DBT), medications (antidepressants), and nutritional rehabilitation.',
+        'Recommended Foods: Balanced meals, high-fiber foods, complex carbohydrates.',
+        'Actions: Therapy, nutritional counseling, stress management.',
+        ['images/bulimia1.jpg', 'images/bulimia2.jpg']
+    )">
+    <img src="images/bulimia-thumbnail.jpg" alt="Bulimia Nervosa">
+    <h3>Bulimia Nervosa</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Attention-Deficit Hyperactivity Disorder (ADHD)', 
+        'ADHD is a neurodevelopmental disorder characterized by inattention, hyperactivity, and impulsivity that affects daily functioning.',
+        'Causes: Genetic factors, environmental influences, prenatal factors.',
+        'Treatment: Behavioral therapy, medications (stimulants, non-stimulants).',
+        'Recommended Foods: Protein-rich foods, omega-3 fatty acids, complex carbohydrates.',
+        'Actions: Time management strategies, behavioral modifications, exercise.',
+        ['images/adhd1.jpg', 'images/adhd2.jpg']
+    )">
+    <img src="images/adhd-thumbnail.jpg" alt="ADHD">
+    <h3>Attention-Deficit Hyperactivity Disorder (ADHD)</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Dissociative Identity Disorder (DID)', 
+        'DID, formerly known as multiple personality disorder, involves the presence of two or more distinct personality states.',
+        'Causes: Trauma or abuse in early childhood, dissociation as a coping mechanism.',
+        'Treatment: Psychotherapy (DBT, trauma-focused therapy), medication for symptoms like depression or anxiety.',
+        'Recommended Foods: Balanced, nutrient-dense meals to support mental health.',
+        'Actions: Ongoing therapy, coping strategies, support groups.',
+        ['images/did1.jpg', 'images/did2.jpg']
+    )">
+    <img src="images/did-thumbnail.jpg" alt="Dissociative Identity Disorder">
+    <h3>Dissociative Identity Disorder (DID)</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Borderline Personality Disorder (BPD)', 
+        'BPD is a personality disorder marked by intense emotions, unstable relationships, and difficulty regulating emotions.',
+        'Causes: Genetics, environmental stressors, childhood trauma.',
+        'Treatment: Dialectical Behavioral Therapy (DBT), medications for mood stabilization.',
+        'Recommended Foods: Omega-3 fatty acids, antioxidants, lean proteins.',
+        'Actions: Therapy, mindfulness practices, emotion regulation techniques.',
+        ['images/bpd1.jpg', 'images/bpd2.jpg']
+    )">
+    <img src="images/bpd-thumbnail.jpg" alt="Borderline Personality Disorder">
+    <h3>Borderline Personality Disorder (BPD)</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Narcolepsy', 
+        'Narcolepsy is a sleep disorder characterized by excessive daytime sleepiness and sudden sleep attacks.',
+        'Causes: Genetic factors, abnormality in the brain’s regulation of sleep-wake cycles.',
+        'Treatment: Stimulants, antidepressants, lifestyle adjustments.',
+        'Recommended Foods: Foods rich in complex carbohydrates and protein.',
+        'Actions: Scheduled naps, avoiding caffeine or alcohol, consistent sleep routine.',
+        ['images/narcolepsy1.jpg', 'images/narcolepsy2.jpg']
+    )">
+    <img src="images/narcolepsy-thumbnail.jpg" alt="Narcolepsy">
+    <h3>Narcolepsy</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Hoarding Disorder', 
+        'Hoarding Disorder is characterized by difficulty discarding items, resulting in excessive accumulation of possessions.',
+        'Causes: Genetic predisposition, traumatic experiences, and cognitive distortions.',
+        'Treatment: Cognitive Behavioral Therapy (CBT), medications (antidepressants).',
+        'Recommended Foods: Balanced meals to support mental clarity.',
+        'Actions: Gradual decluttering, therapy, support groups.',
+        ['images/hoarding1.jpg', 'images/hoarding2.jpg']
+    )">
+    <img src="images/hoarding-thumbnail.jpg" alt="Hoarding Disorder">
+    <h3>Hoarding Disorder</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Substance Use Disorder', 
+        'Substance Use Disorder is characterized by the compulsive use of substances despite negative consequences.',
+        'Causes: Genetic predisposition, environmental stressors, trauma, peer pressure.',
+        'Treatment: Therapy (CBT, DBT), medications (methadone, buprenorphine), support groups.',
+        'Recommended Foods: Omega-3 fatty acids, nutrient-dense meals for recovery.',
+        'Actions: Detoxification, rehabilitation programs, ongoing support.',
+        ['images/addiction1.jpg', 'images/addiction2.jpg']
+    )">
+    <img src="images/addiction-thumbnail.jpg" alt="Substance Use Disorder">
+    <h3>Substance Use Disorder</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Insomnia', 
+        'Insomnia is a sleep disorder where individuals have difficulty falling or staying asleep, affecting daytime functioning.',
+        'Causes: Stress, anxiety, poor sleep hygiene, medical conditions.',
+        'Treatment: Cognitive Behavioral Therapy for Insomnia (CBT-I), sleep hygiene practices, medications.',
+        'Recommended Foods: Foods rich in magnesium, melatonin-boosting foods.',
+        'Actions: Sleep hygiene, relaxation techniques, mindfulness.',
+        ['images/insomnia1.jpg', 'images/insomnia2.jpg']
+    )">
+    <img src="images/insomnia-thumbnail.jpg" alt="Insomnia">
+    <h3>Insomnia</h3>
+</div>
+<div class="box" 
+    onclick="showModal(
+        'Obsessive-Compulsive Disorder (OCD)', 
+        'OCD is a mental health condition characterized by obsessive thoughts and compulsive behaviors performed to reduce anxiety.',
+        'Causes: Genetic factors, brain structure abnormalities, environmental influences.',
+        'Treatment: Cognitive Behavioral Therapy (CBT), exposure therapy, medications (SSRIs).',
+        'Recommended Foods: Omega-3s, complex carbs, anti-inflammatory foods.',
+        'Actions: Therapy, mindfulness, cognitive restructuring.',
+        ['images/ocd1.jpg', 'images/ocd2.jpg']
+    )">
+    <img src="images/ocd-thumbnail.jpg" alt="Obsessive-Compulsive Disorder">
+    <h3>Obsessive-Compulsive Disorder (OCD)</h3>
+</div>
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions, suggestions, or feedback, feel free to get in touch with us.</p>
+    <div class="contact-info">
+        <p>Email: info@vitalvista.com</p>
+        <p>Phone: +1 (234) 567-890</p>
+        <p>Address: 123 Vital Street, Health City, HC 45678</p>
+    </div>
+</section>
+
+
+
+
+            <!-- Add more boxes for 22 more diseases -->
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>© 2024 VitalVista. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal HTML -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-overview"></p>
+            <p><strong>Causes:</strong> <span id="modal-causes"></span></p>
+            <p><strong>Treatment:</strong> <span id="modal-treatment"></span></p>
+            <p><strong>Recommended Foods:</strong> <span id="modal-foods"></span></p>
+            <p><strong>Actions:</strong> <span id="modal-actions"></span></p>
+            <div class="modal-images" id="modal-images"></div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(title, overview, causes, treatment, foods, actions, imageArray) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-overview').innerText = overview;
+            document.getElementById('modal-causes').innerText = causes;
+            document.getElementById('modal-treatment').innerText = treatment;
+            document.getElementById('modal-foods').innerText = foods;
+            document.getElementById('modal-actions').innerText = actions;
+
+            const modalImagesContainer = document.getElementById('modal-images');
+            modalImagesContainer.innerHTML = ''; // Clear previous images
+            imageArray.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                modalImagesContainer.appendChild(img);
+            });
+
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Disease</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Header Section */
+        header {
+            background-image: url('https://via.placeholder.com/1920x500/4CAF50/ffffff?text=About+Disease');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 50px;
+        }
+
+        header h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        /* Expanded Disease Introduction Section */
+        .disease-introduction {
+            width: 100%;
+            background-color: #ffffff;
+            padding: 30px 20px;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease;
+            cursor: pointer;
+            overflow: hidden;
+            border-bottom: 2px solid #eee;
+        }
+
+        .disease-introduction h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .disease-introduction p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .disease-introduction .more-content {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .disease-introduction.expanded {
+            padding: 50px;
+        }
+
+        .disease-introduction.expanded .more-content {
+            display: block;
+        }
+
+        .disease-introduction button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .disease-introduction button:hover {
+            background-color: #45a049;
+        }
+
+        /* Disease Boxes Section */
+        .disease-boxes {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            gap: 20px;
+        }
+
+        .disease-boxes .box {
+            width: 18%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .disease-boxes .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .disease-boxes .box h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .disease-boxes .box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact-us.html">Contact Us</a>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>About Disease</h1>
+        <p>Learn more about different types of diseases and how they affect our health.</p>
+    </header>
+
+    <!-- Disease Introduction Section -->
+    <section class="disease-introduction">
+        <h2>What are Diseases?</h2>
+        <p>A disease is a condition that affects the normal functioning of the body or mind. Diseases can be caused by a variety of factors, including infections, genetic conditions, lifestyle choices, or aging. In this section, we will explore some of the major disease categories: mental diseases, physical diseases, age-related diseases, and lifestyle diseases.</p>
+        <p>Understanding diseases is the first step in prevention and treatment. It is important to know how diseases affect different systems in the body and how we can manage or avoid them with healthy lifestyle choices.</p>
+
+        <!-- More content that will appear on click -->
+        <div class="more-content">
+            <p>Diseases can have varying symptoms and impacts depending on the affected system or area of the body. For instance, mental diseases may affect behavior and cognitive function, while physical diseases could impact vital organs or muscles. By recognizing symptoms early, individuals can take preventive measures and seek timely medical advice.</p>
+            <img src="https://via.placeholder.com/600x400/FFEB3B/ffffff?text=Understanding+Diseases" alt="Understanding Diseases">
+        </div>
+
+        <!-- Toggle Button -->
+        <button onclick="toggleContent()">Click to Know More</button>
+    </section>
+
+    <!-- Disease Boxes Section -->
+    <section class="disease-boxes">
+        <!-- Mental Disease Box -->
+        <div class="box" onclick="window.location.href='mental-diseases.html';">
+            <h3>Mental Diseases</h3>
+            <img src="https://via.placeholder.com/350x250/ff5722/ffffff?text=Mental+Diseases" alt="Mental Diseases">
+            <p>Click to explore mental health diseases</p>
+        </div>
+
+        <!-- Physical Disease Box -->
+        <div class="box" onclick="window.location.href='physical-diseases.html';">
+            <h3>Physical Diseases</h3>
+            <img src="https://via.placeholder.com/350x250/4CAF50/ffffff?text=Physical+Diseases" alt="Physical Diseases">
+            <p>Click to explore physical health diseases</p>
+        </div>
+
+        <!-- Age-Related Disease Box -->
+        <div class="box" onclick="window.location.href='age-related-diseases.html';">
+            <h3>Age-Related Diseases</h3>
+            <img src="https://via.placeholder.com/350x250/2196F3/ffffff?text=Age+Related+Diseases" alt="Age-Related Diseases">
+            <p>Click to explore diseases related to aging</p>
+        </div>
+
+        <!-- Lifestyle Disease Box -->
+        <div class="box" onclick="window.location.href='lifestyle-diseases.html';">
+            <h3>Lifestyle Diseases</h3>
+            <img src="https://via.placeholder.com/350x250/FFC107/ffffff?text=Lifestyle+Diseases" alt="Lifestyle Diseases">
+            <p>Click to explore diseases linked to lifestyle</p>
+        </div>
+
+        <!-- General Disease Box -->
+        <div class="box" onclick="window.location.href='general-diseases.html';">
+            <h3>General Diseases</h3>
+            <img src="https://via.placeholder.com/350x250/9E9E9E/ffffff?text=General+Diseases" alt="General Diseases">
+            <p>Click to explore other common diseases</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Disease Information. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleContent() {
+            var section = document.querySelector('.disease-introduction');
+            var button = section.querySelector('button');
+            section.classList.toggle('expanded');
+            
+            // Toggle the button text
+            if (section.classList.contains('expanded')) {
+                button.textContent = "Click to Hide";
+            } else {
+                button.textContent = "Click to Know More";
+            }
+        }
+    </script>
+</body>
+</html>

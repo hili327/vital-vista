@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology - VitalVista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E5E9F0;
+        }
+
+        header {
+            background-image: url('images/BG2.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-image 1s ease-in-out;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .psychology-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .box {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 10px;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .box h2 {
+            color: #000;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .box:hover {
+            width: 900px;
+            height: 250px;
+            border-radius: 10px;
+            z-index: 2;
+            transform: translateY(-10px);
+        }
+
+        .description-box {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            color: #333;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .description-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="hero">
+            <h2><span>PSYCHOLOGY</span></h2>
+        </div>
+    </header>
+
+    <section class="content-container">
+        <div class="psychology-list">
+            <div class="box" 
+                 onmouseover="showDescription('Did you know? People with higher emotional intelligence are better at understanding and managing their own emotions.', 'images/emotional-intelligence.jpg')"
+                 onclick="window.location.href='cognitive-biases.html';">
+                <h2>Emotional Intelligence</h2>
+            </div>
+            <div class="box" 
+                 onmouseover="showDescription('Fact: Your brain is more active when you are asleep than when you are awake!', 'images/sleep-facts.jpg')"
+                 onclick="window.location.href='mental-health.html';">
+                <h2>Sleep & Dreams</h2>
+            </div>
+            <div class="box" 
+                 onmouseover="showDescription('Truth: Human beings are social creatures and require connection with others for well-being.', 'images/social-connection.jpg')"
+                 onclick="window.location.href='behavioral-psychology.html';">
+                <h2>Social Connections</h2>
+            </div>
+            <div class="box" 
+                 onmouseover="showDescription('Psychological studies show that practicing gratitude can improve your mental health.', 'images/gratitude.jpg')"
+                 onclick="window.location.href='positive-psychology.html';">
+                <h2>Gratitude Effects</h2>
+            </div>
+        </div>
+        
+        <div id="descriptionBox" class="description-box">
+            <img id="descriptionImage" src="images/default.jpg" alt="Description Image">
+            <p id="descriptionText">Hover over a circle to see the description and image.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Psychology Insights. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showDescription(text, imageUrl) {
+            const descriptionImage = document.getElementById('descriptionImage');
+            const descriptionText = document.getElementById('descriptionText');
+
+            descriptionText.innerHTML = text;
+            descriptionImage.src = imageUrl;
+        }
+        
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach(box => {
+            box.addEventListener('mouseleave', function() {
+                document.getElementById('descriptionText').innerHTML = 'Hover over a circle to see the description and image.';
+                document.getElementById('descriptionImage').src = 'images/default.jpg';
+            });
+        });
+
+        function startBackgroundImageSlider(elementId, images, interval) {
+            const element = document.getElementById(elementId);
+            let currentIndex = 0;
+
+            function changeBackgroundImage() {
+                element.style.backgroundImage = `url('images/${images[currentIndex]}')`;
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            changeBackgroundImage();
+            setInterval(changeBackgroundImage, interval);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            startBackgroundImageSlider('header', ['BG2.jpg', 'BG3.jpg', 'BG4.jpg'], 45000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty - VitalVista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+
+        /* Header Section */
+        header {
+            background-image: url('images/beauty-header.jpg'); /* Replace with a high-quality image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            max-width: 600px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin: 60px 0;
+            font-weight: 700;
+        }
+
+        /* Beauty Categories */
+        .beauty-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .category-box {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .category-box:hover {
+            transform: scale(1.1);
+        }
+
+        .category-box h3 {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Beauty Tips Section */
+        .beauty-tips {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .tip-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .tip-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .tip-box img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .tip-box h4 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .tip-box p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div>
+            <h1>Discover the Beauty Within</h1>
+            <p>Explore expert beauty tips, trends, and skincare routines for a radiant you.</p>
+        </div>
+    </header>
+
+    <!-- Beauty Categories Section -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Beauty Categories</h2>
+        </div>
+        <div class="beauty-categories">
+            <div class="category-box" style="background-image: url('images/skin-care.jpg');">
+                <h3>Skin Care</h3>
+            </div>
+            <div class="category-box" style="background-image: url('images/hair-care.jpg');">
+                <h3>Hair Care</h3>
+            </div>
+            <div class="category-box" style="background-image: url('images/makeup.jpg');">
+                <h3>Makeup</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beauty Tips Section -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Featured Beauty Tips</h2>
+        </div>
+        <div class="beauty-tips">
+            <div class="tip-box">
+                <img src="images/beauty-tip1.jpg" alt="Beauty Tip 1">
+                <h4>Perfect Your Skin Routine</h4>
+                <p>Learn about the latest skin care trends and how to achieve flawless skin.</p>
+            </div>
+            <div class="tip-box">
+                <img src="images/beauty-tip2.jpg" alt="Beauty Tip 2">
+                <h4>Hair Care Secrets</h4>
+                <p>Discover the best tips and products for keeping your hair shiny and healthy.</p>
+            </div>
+            <div class="tip-box">
+                <img src="images/beauty-tip3.jpg" alt="Beauty Tip 3">
+                <h4>Makeup Essentials</h4>
+                <p>Explore the must-have makeup products and tips to enhance your beauty.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Beauty Tips and Products Section -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Beauty Tips and Must-Have Products</h2>
+        </div>
+        <div class="beauty-tips">
+            <div class="tip-box">
+                <img src="images/skin-care-product.jpg" alt="Skin Care Product">
+                <h4>Skin Care Essentials</h4>
+                <p>Discover the best products for a radiant and smooth complexion.</p>
+            </div>
+            <div class="tip-box">
+                <img src="images/hair-care-product.jpg" alt="Hair Care Product">
+                <h4>Hair Care Revolution</h4>
+                <p>Transform your hair with these top-rated products for volume and shine.</p>
+            </div>
+            <div class="tip-box">
+                <img src="images/makeup-product.jpg" alt="Makeup Product">
+                <h4>Makeup Must-Haves</h4>
+                <p>Enhance your beauty with these timeless and versatile makeup products.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 VitalVista. All rights reserved.</p>
+        <p><a href="contact.html">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

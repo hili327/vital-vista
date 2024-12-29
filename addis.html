@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalVista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #131621, #2a66c723, #2729);;
+            scroll-behavior: smooth;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        /* Header and Navbar */
+        header {
+            height: 400px;
+            padding: 50px;
+            position: relative;
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            z-index: 0;
+            border-bottom-left-radius: 10%;
+            border-bottom-right-radius: 10%;
+            
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgb(6, 70, 95), #123000, #212729);
+            background-size: 100% 100%;
+            animation: gradientAnimation 10s ease infinite;
+            z-index: 0;
+        }
+
+
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #FFD700;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #FFD700;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section Enhancements */
+        .hero {
+            position: relative;
+            z-index: 1;
+            margin-top: 50px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: bold;
+            color:#FFD700;
+            text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8), 0px 0px 20px rgba(255, 215, 0, 0.6);
+            animation: glowText 2s infinite alternate;
+        }
+
+        .hero h2:hover {
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8), 0px 0px 25px rgba(255, 215, 0, 1);
+            transform: scale(1.1);
+            transition: transform 0.3s, text-shadow 0.3s;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #fff;
+            font-style: italic;
+            margin-top: 10px;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        /* Keyframes for Animations */
+        @keyframes glowText {
+            0% {
+                text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8), 0px 0px 20px rgba(255, 215, 0, 0.6);
+            }
+            100% {
+                text-shadow: 0px 0px 20px rgba(255, 255, 255, 1), 0px 0px 30px rgba(255, 215, 0, 1);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Rest of the Design */
+        .boxes-list {
+            padding: 40px 0;
+        }
+        .content-container {
+            display: flex; /* Use flexbox for layout */
+            padding: 20px;
+        }
+
+        .description-box {
+            width: 800px; /* Set width for the description box */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            color: #333;
+            font-size: 1.2rem;
+            margin-left: auto; /* Align to the right side */
+            display: flex;
+            flex-direction: column;
+            align-items:self-start  /* Center align content */
+            transition : transform 0.3s ease; /* Animation for hover effect */
+        }
+
+        .description-box:hover {
+            transform: scale(1.05); /* Slight scale on hover */
+        }
+
+        .description-box img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 50px;
+            margin-bottom: 10px;
+        }
+
+        .disease-list {
+            display: flex;
+            flex-direction: column; /* Arrange boxes in a column */
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            margin-right: 20px; /* Space for description box */
+        }
+
+        .box {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 10%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 10px auto; /* Center the boxes */
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .box h2 {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.8rem;
+            z-index: 1;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .box:hover {
+            width: 900px;
+            height: 250px;
+            border-radius: 10px;
+            z-index: 2;
+            transform: translateY(-10px);
+            justify-content: center;
+            background-image: none;
+        }
+
+        .box img {
+            width: 30%;
+            height: 100%;
+            transition: opacity 0.5s ease;
+            object-fit: cover;
+            opacity: 0; /* Start hidden */
+            margin: 0 5px; /* Add margin for separation */
+        }
+
+        .box:hover img {
+            opacity: 1; /* Show images on hover */
+        }
+        .menu {
+            position: relative;
+            color: #fff;
+            text-align: center;
+            height: 300px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            background-color: #000;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+
+        .menu h2 {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.8rem;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+        }
+
+        .menu:hover {
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+    
+        
+        .about-section {
+            background: #fff;
+            padding: 40px 20px;
+            margin-top: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .about-section .highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #333;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            color: #FFD700;
+        }
+
+        .contact-section .social-media {
+            margin-top: 20px;
+        }
+
+        .contact-section .social-media a {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-section .social-media a:hover {
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h2>MAINTAIN YOUR HEALTH</h2>
+            <p>dive to the world of the health, know how to maintian your health and live healthy life.</p>
+        </div>
+    </header>
+
+    <section class="content-container">
+        <div class="disease-list" id="diseaseList">
+            <div class="box"  
+                 onclick="window.location.href='mental_health.html';">
+                <h2>mental Health</h2>
+               
+            </div>
+            <div class="box" 
+                 data-images="images/MH1.jpg, images/MH2.jpg"
+                 onmouseover="updateDescription(this);" 
+                 onclick="window.location.href='physical_health.html';">
+                <h2>physical-health</h2>
+                <img src="images/PH1.jpg" alt="MH Image 1">
+                <img src="images/PH2.jpg" alt="MH Image 2">
+                <img src="images/PH3.jpg" alt="MH Image 3">
+            </div>
+            <div class="box" 
+                 data-images="images/MH1.jpg, images/MH2.jpg, images/MH3.jpg"
+                 onmouseover="updateDescription(this);" 
+                 onclick="window.location.href='overall_health.html';">
+                <h2>overall-health</h2>
+                <img src="images/MH1.jpg" alt="MH Image 1">
+                <img src="images/MH2.jpg" alt="MH Image 2">
+                <img src="images/MH3.jpg" alt="MH Image 3">
+            </div>
+        </div>
+        
+        <div id="descriptionBox" class="description-box">
+            <img id="descriptionImage" src="images/BG.jpg" alt="Description Image">
+            <p id="descriptionText">Hover over a circle to see the description and image.</p>
+        </div>
+    </section>
+    <section id="about" class="about-section">
+        <h2>About VitalVista</h2>
+        <p>VitalVista is your one-stop resource for everything from health management and disease awareness to beauty and self-care. Whether you are looking for tips, guidance, or specific disease-related information, <span class="highlight">VitalVista</span> is here to guide you.</p>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>We would love to hear from you! Reach out to us through our social media or contact form.</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 VitalVista. All rights reserved.</p>
+    </footer>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.5/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Image change script -->
+    <script>
+        const images = {
+            mentalHealth: [
+                'images/health1.jpg', 'images/health2.jpg', 'images/health3.jpg',
+                'images/health4.jpg', 'images/health5.jpg'
+            ],
+            aboutDisease: [
+                'images/disease1.jpg', 'images/disease2.jpg', 'images/disease3.jpg',
+                'images/disease4.jpg', 'images/disease5.jpg'
+            ],
+            psychology: [
+                'images/psychology1.jpg', 'images/psychology2.jpg', 'images/psychology3.jpg',
+                'images/psychology4.jpg', 'images/psychology5.jpg'
+            ],
+            beauty: [
+                'images/beauty1.jpg', 'images/beauty2.jpg', 'images/beauty3.jpg',
+                'images/beauty4.jpg', 'images/beauty5.jpg'
+            ],
+            socialLife: [
+                'images/social1.jpg', 'images/social2.jpg', 'images/social3.jpg',
+                'images/social4.jpg', 'images/social5.jpg'
+            ]
+        };
+
+        function changeImages() {
+            for (let key in images) {
+                let box = document.getElementById(key);
+                if (box) {
+                    let currentIndex = Math.floor(Math.random() * images[key].length);
+                    box.style.backgroundImage = `url('${images[key][currentIndex]}')`;
+                }
+            }
+        }
+
+        setInterval(changeImages, 60000); // Change images every minute
+    </script>
+</body>
+</html>

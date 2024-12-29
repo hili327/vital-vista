@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Disease - VitalVista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DCE4B8;
+        }
+
+        header {
+            background-image: url('images/BG1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-image 1s ease-in-out;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .content-container {
+            display: flex; /* Use flexbox for layout */
+            padding: 20px;
+        }
+
+        .description-box {
+            width: 300px; /* Set width for the description box */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            color: #333;
+            font-size: 1.2rem;
+            margin-left: auto; /* Align to the right side */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center align content */
+            transition: transform 0.3s ease; /* Animation for hover effect */
+        }
+
+        .description-box:hover {
+            transform: scale(1.05); /* Slight scale on hover */
+        }
+
+        .description-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .disease-list {
+            display: flex;
+            flex-direction: column; /* Arrange boxes in a column */
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            margin-right: 20px; /* Space for description box */
+        }
+
+        .box {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 10px auto; /* Center the boxes */
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            background-image: url('images/MH.jpg'); /* Default image */
+        }
+
+        .box h2 {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.8rem;
+            z-index: 1;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .box:hover {
+            width: 900px;
+            height: 250px;
+            border-radius: 10px;
+            z-index: 2;
+            transform: translateY(-10px);
+            justify-content: center;
+            background-image: none;
+        }
+
+        .box img {
+            width: 30%;
+            height: 100%;
+            transition: opacity 0.5s ease;
+            object-fit: cover;
+            opacity: 0; /* Start hidden */
+            margin: 0 5px; /* Add margin for separation */
+        }
+
+        .box:hover img {
+            opacity: 1; /* Show images on hover */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+
+        .searchResults {
+            margin-top: 20px;
+            color: #333;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="hero">
+            <h2><span>About Disease</span></h2>
+        </div>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for diseases..." class="form-control" style="max-width: 400px; margin: auto;">
+    </div>
+
+    <section class="content-container">
+        <div class="disease-list" id="diseaseList">
+            <div class="box" 
+                 data-diseases="Bipolar Disorder, Schizophrenia, Depression" 
+                 data-description="Mental health refers to cognitive, emotional, and social well-being." 
+                 data-images="images/MH.jpg, images/MH.jpg, images/MH3.jpg"
+                 onmouseover="updateDescription(this);"  
+                 onclick="window.location.href='mental_diseases.html';">
+                <h2>Mental Diseases</h2>
+                <img src="images/beauty1.jpg" alt="MH Image 1">
+                <img src="images/MH.jpg" alt="MH Image 2">
+                <img src="images/MH3.jpg" alt="MH Image 3">
+            </div>
+            <div class="box" 
+                 data-diseases="Flu, Cold, Infection" 
+                 data-description="Physical health encompasses the overall physical condition." 
+                 data-images="images/MH1.jpg, images/MH2.jpg"
+                 onmouseover="updateDescription(this);" 
+                 onclick="window.location.href='physical_disease.html';">
+                <h2>Physical Diseases</h2>
+                <img src="images/MH.jpg" alt="MH Image 1">
+                <img src="images/MH2.jpg" alt="MH Image 2">
+                <img src="images/MH3.jpg" alt="MH Image 3">
+            </div>
+            <div class="box" 
+                 data-diseases="Diabetes, Heart Disease, Obesity" 
+                 data-description="Lifestyle diseases are often preventable and related to lifestyle choices." 
+                 data-images="images/MH1.jpg, images/MH2.jpg, images/MH3.jpg"
+                 onmouseover="updateDescription(this);" 
+                 onclick="window.location.href='disease_RTL.html';">
+                <h2>Lifestyle Diseases</h2>
+                <img src="images/MH1.jpg" alt="MH Image 1">
+                <img src="images/MH2.jpg" alt="MH Image 2">
+                <img src="images/MH3.jpg" alt="MH Image 3">
+            </div>
+            <div class="box" 
+                 data-diseases="Alzheimer's, Arthritis, Osteoporosis" 
+                 data-description="Age-related diseases are common as people grow older." 
+                 data-images="images/MH1.jpg, images/MH2.jpg, images/MH3.jpg"
+                 onmouseover="updateDescription(this);" 
+                 onclick="window.location.href='disease_RTA.html';">
+                <h2>Age-Related Diseases</h2>
+                <img src="images/MH1.jpg" alt="MH Image 1">
+                <img src="images/MH2.jpg" alt="MH Image 2">
+                <img src="images/MH3.jpg" alt="MH Image 3">
+            </div>
+        </div>
+        
+        <div id="descriptionBox" class="description-box">
+            <img id="descriptionImage" src="images/default.jpg" alt="Description Image">
+            <p id="descriptionText">Hover over a circle to see the description and image.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Disease Information. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Default description
+        document.addEventListener("DOMContentLoaded", function() {
+            const descriptionText = document.getElementById("descriptionText");
+            descriptionText.innerHTML = "Hover over a circle to see the description and image.";
+        });
+
+        function updateDescription(box) {
+            const descriptionText = document.getElementById("descriptionText");
+            const descriptionImage = document.getElementById("descriptionImage");
+            
+            // Update description based on hovered box
+            descriptionText.innerHTML = box.getAttribute("data-description");
+            const images = box.getAttribute("data-images").split(',');
+            descriptionImage.src = images[0].trim(); // Set to first image in data
+        }
+    </script>
+</body>
+</html>

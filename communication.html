@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintain Health - VitalVista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #DCE4B8;
+        }
+
+        header {
+            background-image: url('images/BG1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-image 1s ease-in-out;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Container for boxes and the description */
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        /* Disease Boxes */
+        .health-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.5s ease;
+            margin-top: 20px;
+        }
+
+        .box {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 10px;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .box h2 {
+            color: #000;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        /* Hover effect to transform circle to rectangle */
+        .box:hover {
+            width: 900px;
+            height: 250px;
+            border-radius: 10px;
+            z-index: 2;
+            transform: translateY(-10px);
+        }
+
+        /* Description box on the right */
+        .description-box {
+            width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            color: #333;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .description-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="hero">
+            <h2><span>communication</span></h2>
+        </div>
+    </header>
+
+    <section class="content-container">
+        <div class="health-list">
+            <div class="box" 
+                 onmouseover="showDescription('Mental health refers to cognitive, emotional, and social well-being.', 'images/mental-health.jpg')"
+                 onclick="window.location.href='communication-skills.html';">
+                <h2>Communication Skills</h2>
+            </div>
+            <div class="box" 
+                 onmouseover="showDescription('Physical health is about the body\'s condition and performance.', 'images/physical-health.jpg')"
+                 onclick="window.location.href='social-skills.html';">
+                <h2>Social Skills</h2>
+            </div>
+            <div class="box" 
+                 onmouseover="showDescription('Sexual health encompasses well-being related to sexuality.', 'images/sexual-health.jpg')"
+                 onclick="window.location.href='emotional_intelligence.html';">
+                <h2>Emotional Intelligence</h2>
+            </div>
+            <div class="box" 
+                 onmouseover="showDescription('Overall health is a combination of physical, mental, and social well-being.', 'images/overall-health.jpg')"
+                 onclick="window.location.href='relationship-management.html';">
+                <h2>Relationship Management</h2>
+            </div>
+        </div>
+        
+        <!-- Description box on the right -->
+        <div id="descriptionBox" class="description-box">
+            <img id="descriptionImage" src="images/default.jpg" alt="Description Image">
+            <p id="descriptionText">Hover over a circle to see the description and image.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Maintain Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript function to show description
+        function showDescription(text, imageUrl) {
+            const descriptionImage = document.getElementById('descriptionImage');
+            const descriptionText = document.getElementById('descriptionText');
+
+            descriptionText.innerHTML = text;
+            descriptionImage.src = imageUrl; // Change the image based on the hovered circle
+        }
+        
+        // Optional: Reset description box on mouse leave
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach(box => {
+            box.addEventListener('mouseleave', function() {
+                document.getElementById('descriptionText').innerHTML = 'Hover over a circle to see the description and image.';
+                document.getElementById('descriptionImage').src = 'images/default.jpg'; // Reset to default image if needed
+            });
+        });
+
+        // Background image slider functionality
+        function startBackgroundImageSlider(elementId, images, interval) {
+            const element = document.getElementById(elementId);
+            let currentIndex = 0;
+            function changeBackgroundImage() {
+                element.style.backgroundImage = `url('images/${images[currentIndex]}')`;
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            changeBackgroundImage();
+            setInterval(changeBackgroundImage, interval);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            startBackgroundImageSlider('header', ['BG4.jpg', 'BG5.jpg', 'BG6.jpg'], 45000);
+        });
+    </script>
+</body>
+</html>

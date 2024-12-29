@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintain Health</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Section */
+        header {
+            background-image: url('https://via.placeholder.com/1920x500/4CAF50/ffffff?text=Maintain+Health');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+        /* Health Boxes Section */
+        .health-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .box h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .box p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .box .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.7;
+            transition: opacity 1s ease-in-out;
+            z-index: -1;
+        }
+
+        .mental-health {
+            background-color: #D1C4E9;
+        }
+
+        .physical-health {
+            background-color: #FFCC80;
+        }
+
+        .overall-health {
+            background-color: #81C784;
+        }
+
+        /* About Us Section */
+        .about-us {
+            background-color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .about-us p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Contact Us Section */
+        .contact-us {
+            background-color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact-us form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-us input,
+        .contact-us textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-us button {
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-us button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Maintain Your Health</h1>
+        <p>Stay Healthy, Stay Happy</p>
+    </header>
+
+    <!-- Health Boxes Section -->
+    <section class="health-boxes">
+        <div class="box mental-health" onclick="window.location.href='mental_health.html'">
+            <div class="image-container" id="mental-health-image"></div>
+            <h2>Mental Health</h2>
+            <p>Focus on improving your mental well-being.</p>
+        </div>
+        <div class="box physical-health" onclick="window.location.href='physical_health.html'">
+            <div class="image-container" id="physical-health-image"></div>
+            <h2>Physical Health</h2>
+            <p>Take care of your body to stay fit and active.</p>
+        </div>
+        <div class="box overall-health" onclick="window.location.href='overall_health.html'">
+            <div class="image-container" id="overall-health-image"></div>
+            <h2>Overall Health</h2>
+            <p>Balance both mental and physical health for holistic wellness.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h2>About Us</h2>
+        <p>We are committed to providing the best health recommendations to improve your well-being. Our goal is to inspire people to maintain a balanced lifestyle through useful tips and insights.</p>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-us">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us!</p>
+        <form action="#" method="post">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Maintain Health. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to cycle images every minute for each health box
+        const mentalHealthImages = [
+            'https://via.placeholder.com/250x250/ff0000/ffffff?text=Mental+Health+1',
+            'https://via.placeholder.com/250x250/00ff00/ffffff?text=Mental+Health+2',
+            'https://via.placeholder.com/250x250/0000ff/ffffff?text=Mental+Health+3'
+        ];
+        const physicalHealthImages = [
+            'https://via.placeholder.com/250x250/ff6600/ffffff?text=Physical+Health+1',
+            'https://via.placeholder.com/250x250/00ccff/ffffff?text=Physical+Health+2',
+            'https://via.placeholder.com/250x250/cccc00/ffffff?text=Physical+Health+3'
+        ];
+        const overallHealthImages = [
+            'https://via.placeholder.com/250x250/6600cc/ffffff?text=Overall+Health+1',
+            'https://via.placeholder.com/250x250/ff3399/ffffff?text=Overall+Health+2',
+            'https://via.placeholder.com/250x250/33cc33/ffffff?text=Overall+Health+3'
+        ];
+
+        // Function to update images in each box
+        function updateImage(containerId, images) {
+            let index = 0;
+            setInterval(() => {
+                document.getElementById(containerId).style.backgroundImage = `url(${images[index]})`;
+                index = (index + 1) % images.length;
+            }, 60000); // Change image every 1 minute
+        }
+
+        // Initialize image cycling
+        updateImage('mental-health-image', mentalHealthImages);
+        updateImage('physical-health-image', physicalHealthImages);
+        updateImage('overall-health-image', overallHealthImages);
+    </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Overall Health Awareness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #3e8e41;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-bottom: 5px solid #ffffff;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: #333;
+            margin-top: 30px;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .section-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #5c9c63;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .section-header:hover {
+            background-color: #4a7d4b;
+            transform: scale(1.05);
+        }
+
+        .section-header span {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .section-header h2 {
+            font-size: 26px;
+            color: #fff;
+        }
+
+        .details {
+            display: none;
+            padding: 20px;
+            background-color: #f0f8f4;
+            margin-top: 20px;
+            border-radius: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .details img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .details img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hover and Animation Effects */
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f3d1ff, #a1d0ff); /* Beautiful gradient */
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #3e8e41;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Slide in Animation */
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animated-fade {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .animated-fade.visible {
+            opacity: 1;
+        }
+
+        .slide-in {
+            animation: slideIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>Overall Health Awareness</h1>
+            <p>Discover the importance of maintaining a balanced lifestyle for overall well-being.</p>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container py-5">
+        <div class="section animated-fade visible slide-in" id="overall-health" onclick="toggleDetails('overall-health-details')">
+            <div class="section-header">
+                <h2>What is Overall Health?</h2>
+                <span>&#9660;</span>
+            </div>
+            <div id="overall-health-details" class="details">
+                <p>Overall health is a state of complete physical, mental, and social well-being. It encompasses more than just the absence of disease, and involves regular physical activity, good nutrition, mental health management, emotional stability, and social connections. Maintaining overall health requires a balanced approach that incorporates various factors that influence how we live our lives.</p>
+                <p><strong>Benefits of Maintaining Overall Health:</strong></p>
+                <ul>
+                    <li><strong>Increased Energy and Vitality:</strong> Being in good health gives you more energy to enjoy life and handle daily challenges.</li>
+                    <li><strong>Improved Mental Clarity:</strong> A healthy body contributes to mental clarity, focus, and decision-making abilities.</li>
+                    <li><strong>Longevity:</strong> A balanced lifestyle can extend your life expectancy by preventing chronic diseases.</li>
+                    <li><strong>Better Emotional Health:</strong> Good overall health helps you regulate your emotions, improving relationships and mental stability.</li>
+                </ul>
+                <img src="https://via.placeholder.com/800x400/3e8e41/ffffff?text=Overall+Health" alt="Overall Health">
+            </div>
+        </div>
+
+        <div class="section animated-fade visible slide-in" id="nutrition" onclick="toggleDetails('nutrition-details')">
+            <div class="section-header">
+                <h2>Nutrition and Its Role</h2>
+                <span>&#9660;</span>
+            </div>
+            <div id="nutrition-details" class="details">
+                <p><strong>Balanced Diet:</strong> Proper nutrition is essential for maintaining good physical health and energy levels. A balanced diet includes proteins, carbohydrates, fats, vitamins, and minerals that support the body's various functions.</p>
+                <p><strong>Hydration:</strong> Staying hydrated by drinking plenty of water is important for overall health, including digestion and muscle function.</p>
+                <p><strong>Healthy Eating Habits:</strong> Incorporating a variety of whole foods and avoiding processed foods helps prevent disease and maintain energy.</p>
+                <img src="https://via.placeholder.com/800x400/ff6347/ffffff?text=Nutrition+is+Key" alt="Nutrition and Diet">
+            </div>
+        </div>
+
+        <div class="section animated-fade visible slide-in" id="sleep-wellbeing" onclick="toggleDetails('sleep-wellbeing-details')">
+            <div class="section-header">
+                <h2>Sleep and Well-being</h2>
+                <span>&#9660;</span>
+            </div>
+            <div id="sleep-wellbeing-details" class="details">
+                <p><strong>Sleep:</strong> Proper sleep is essential for overall health. It helps the body repair, reduces stress, and enhances cognitive function. A regular sleep schedule is crucial for maintaining physical and mental health.</p>
+                <p><strong>Rest and Recovery:</strong> Sleep provides your body with time to recover from daily activities, making it essential for long-term well-being.</p>
+                <img src="https://via.placeholder.com/800x400/ff8c42/ffffff?text=Sleep+is+Essential" alt="Sleep and Well-being">
+            </div>
+        </div>
+
+        <div class="section animated-fade visible slide-in" id="social-wellbeing" onclick="toggleDetails('social-wellbeing-details')">
+            <div class="section-header">
+                <h2>Social Connections</h2>
+                <span>&#9660;</span>
+            </div>
+            <div id="social-wellbeing-details" class="details">
+                <p><strong>Building Relationships:</strong> Healthy social relationships play a major role in your overall health. Positive connections with family, friends, and the community provide emotional support, reduce stress, and improve mental health.</p>
+                <p><strong>Social Engagement:</strong> Regular social interaction is important for maintaining a sense of purpose and belonging, which are key aspects of overall well-being.</p>
+                <img src="https://via.placeholder.com/800x400/4caf50/ffffff?text=Social+Well-being" alt="Social Well-being">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Overall Health Awareness. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Function for Expanding/Collapsing Sections
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

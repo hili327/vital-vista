@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Page - VitalVista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F4F8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-image: url('images/mental-bg1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        nav {
+            background-color: #2F855A;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content-section {
+            padding: 40px 15px;
+            text-align: center;
+            background-color: #6D9773;
+        }
+
+        .content-section .box {
+            width: 250px;
+            height: 300px;
+            margin: 15px;
+            border-radius: 15px;
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .content-section .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .box img {
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 600px;
+            overflow-y: auto;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            color: #5c5050;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+        }
+
+        .modal-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+
+        .modal-images img {
+            width: 150px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #2F855A;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html">Home</a>
+            <a href="#topics">Mental Health</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <header id="header">
+        <h1>Mental Disease</h1>
+    </header>
+
+    <section class="content-section" id="topics">
+        <h2>Explore Key Mental Health Topics</h2>
+        <p>Click on any topic to learn more about its significance in mental health.</p>
+        <div id="topics-container">
+            <div class="box" 
+                onclick="showModal(
+                    'Stress Management', 
+                    'Tips and techniques to help you manage daily stress effectively.',
+                    'Causes: Work pressure, personal issues, lack of support.',
+                    'Treatment: Therapy, exercise, mindfulness practices.',
+                    'Recommended Foods: Nuts, berries, green tea.',
+                    'Actions: Regular exercise, meditation, adequate sleep.',
+                    ['images/BG5.jpg', 'images/stress2.jpg', 'images/stress3.jpg', 'images/stress4.jpg']
+                )">
+                <img src="images/MH.jpg" alt="Stress Management">
+                <h3>Stress Management</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Mindfulness', 
+                    'Practice mindfulness to stay present and improve mental resilience.', 
+                    'Causes: Distractions, multitasking.', 
+                    'Treatment: Mindfulness meditation.', 
+                    'Recommended Foods: Green tea, dark leafy greens.', 
+                    'Actions: Daily mindfulness practice, gratitude journal.', 
+                    'images/mindfulness.jpg')">
+                <img src="images/mindfulness.jpg" alt="Mindfulness">
+                <h3>Mindfulness</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Mindfulness', 
+                    'Practice mindfulness to stay present and improve mental resilience.', 
+                    'Causes: Distractions, multitasking.', 
+                    'Treatment: Mindfulness meditation.', 
+                    'Recommended Foods: Green tea, dark leafy greens.', 
+                    'Actions: Daily mindfulness practice, gratitude journal.', 
+                    'images/mindfulness.jpg')">
+                <img src="images/mindfulness.jpg" alt="Mindfulness">
+                <h3>Mindfulness</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Mindfulness', 
+                    'Practice mindfulness to stay present and improve mental resilience.', 
+                    'Causes: Distractions, multitasking.', 
+                    'Treatment: Mindfulness meditation.', 
+                    'Recommended Foods: Green tea, dark leafy greens.', 
+                    'Actions: Daily mindfulness practice, gratitude journal.', 
+                    'images/mindfulness.jpg')">
+                <img src="images/mindfulness.jpg" alt="Mindfulness">
+                <h3>Mindfulness</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Mindfulness', 
+                    'Practice mindfulness to stay present and improve mental resilience.', 
+                    'Causes: Distractions, multitasking.', 
+                    'Treatment: Mindfulness meditation.', 
+                    'Recommended Foods: Green tea, dark leafy greens.', 
+                    'Actions: Daily mindfulness practice, gratitude journal.', 
+                    'images/mindfulness.jpg')">
+                <img src="images/mindfulness.jpg" alt="Mindfulness">
+                <h3>Mindfulness</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Mindfulness', 
+                    'Practice mindfulness to stay present and improve mental resilience.', 
+                    'Causes: Distractions, multitasking.', 
+                    'Treatment: Mindfulness meditation.', 
+                    'Recommended Foods: Green tea, dark leafy greens.', 
+                    'Actions: Daily mindfulness practice, gratitude journal.', 
+                    'images/mindfulness.jpg')">
+                <img src="images/mindfulness.jpg" alt="Mindfulness">
+                <h3>Mindfulness</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Mindfulness', 
+                    'Practice mindfulness to stay present and improve mental resilience.', 
+                    'Causes: Distractions, multitasking.', 
+                    'Treatment: Mindfulness meditation.', 
+                    'Recommended Foods: Green tea, dark leafy greens.', 
+                    'Actions: Daily mindfulness practice, gratitude journal.', 
+                    'images/mindfulness.jpg')">
+                <img src="images/mindfulness.jpg" alt="Mindfulness">
+                <h3>Mindfulness</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Mindfulness', 
+                    'Practice mindfulness to stay present and improve mental resilience.', 
+                    'Causes: Distractions, multitasking.', 
+                    'Treatment: Mindfulness meditation.', 
+                    'Recommended Foods: Green tea, dark leafy greens.', 
+                    'Actions: Daily mindfulness practice, gratitude journal.', 
+                    'images/mindfulness.jpg')">
+                <img src="images/mindfulness.jpg" alt="Mindfulness">
+                <h3>Mindfulness</h3>
+            </div>
+            <div class="box" 
+                onclick="showModal(
+                    'Healthy Relationships', 
+                    'Understand the importance of healthy relationships in mental well-being.', 
+                    'Causes: Lack of communication, trust issues.', 
+                    'Treatment: Relationship counseling.', 
+                    'Recommended Foods: Shared meals, bonding activities.', 
+                    'Actions: Open communication, mutual respect.', 
+                    'images/relationships.jpg')">
+                <img src="images/relationships.jpg" alt="Healthy Relationships">
+                <h3>Healthy Relationships</h3>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>© 2024 VitalVista. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal HTML -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-overview"></p>
+            <p><strong>Causes:</strong> <span id="modal-causes"></span></p>
+            <p><strong>Treatment:</strong> <span id="modal-treatment"></span></p>
+            <p><strong>Recommended Foods:</strong> <span id="modal-foods"></span></p>
+            <p><strong>Actions:</strong> <span id="modal-actions"></span></p>
+            <div class="modal-images" id="modal-images"></div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(title, overview, causes, treatment, foods, actions, imageArray) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-overview').innerText = overview;
+            document.getElementById('modal-causes').innerText = causes;
+            document.getElementById('modal-treatment').innerText = treatment;
+            document.getElementById('modal-foods').innerText = foods;
+            document.getElementById('modal-actions').innerText = actions;
+            
+            const imageContainer = document.getElementById('modal-images');
+            imageContainer.innerHTML = ''; // Clear previous images
+            imageArray.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = title;
+                imageContainer.appendChild(img);
+            });
+
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
+    </script>
+</body>
+</html>
